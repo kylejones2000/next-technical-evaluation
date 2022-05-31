@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 // Configuration
-const PORT = 3000;
+const PORT = 8001;
 const HOST = 'localhost';
 const API_SERVICE_URL = 'https://itunes.apple.com/search';
 
