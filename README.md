@@ -1,5 +1,5 @@
 # next-tech-evaluation
-Next Principle Engineer technical evaluation
+## Next Principle Engineer technical evaluation
 
 To get it working...
 
@@ -23,6 +23,6 @@ Tech stack:
 - Jest & @testing-library/react
 
 
-Known issues:
+## Known issues:
 
 There's an issue with the API returning the same trackId's (which are used as the card key attribute) when changing the search field rapidly before redux can update and then react remove the stale components with the same id. That manifests itself with old cards not being removed.
