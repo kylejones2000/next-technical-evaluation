@@ -26,7 +26,6 @@ function Album({ mediaCards }: Props) {
       </AppBar>
       <main>
         <div>
-          {/* End hero unit */}
           <Grid container spacing={10}>
             {mediaCards.map((card: Media) => (
               <Grid item key={card.trackId} sm={6} md={4} lg={3}>

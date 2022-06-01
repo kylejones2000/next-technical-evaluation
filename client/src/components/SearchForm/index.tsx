@@ -6,6 +6,9 @@ import { fetchPosts } from '../../redux/store';
 import { ITEMS_PER_FETCH } from '../../constants';
 import type { QueryParams } from '../../types';
 
+const formStyle = { mx: 'auto', my: 1, width: 1 / 2 };
+const textFieldStyle = { width: 1 };
+
 function SearchForm() {
   const dispatch = useDispatch();
 
@@ -22,9 +25,9 @@ function SearchForm() {
   };
 
   return (
-    <Paper sx={{ mx: 'auto', my: 1, width: 1 / 2 }}>
+    <Paper sx={formStyle}>
       <TextField
-        sx={{ width: 1 }}
+        sx={textFieldStyle}
         onChange={onTextChange}
         value={searchInput}
         label="Type search terms to search Apple"
