@@ -1,5 +1,12 @@
 import * as React from 'react';
+import SearchForm from '../SearchForm';
 
-const Header = () => <div>This is a header</div>;
+function Header() {
+  return (
+    <div>
+      <SearchForm />
+    </div>
+  );
+}
 
 export default Header;
