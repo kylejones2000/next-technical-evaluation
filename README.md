@@ -9,3 +9,15 @@ To get it working...
 - `yarn start`
 - Go to `http://localhost:9000` in your browser
 - Type into the searchbox
+
+Application returns 10 results at a time with an infinite scroller
+
+Tech stack:
+
+- React (Hooks)
+- Typescript
+- Redux
+- Redux Thunk
+- Node & Express (Proxy server)
+- Material UI & Styled
+- Jest & @testing-library/react
