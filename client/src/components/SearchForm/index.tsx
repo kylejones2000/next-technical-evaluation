@@ -6,6 +6,8 @@ import { fetchPosts } from '../../redux/store';
 import { ITEMS_PER_FETCH } from '../../constants';
 import type { QueryParams } from '../../types';
 
+const debounce = require('lodash.debounce');
+
 const formStyle = { mx: 'auto', my: 1, width: 1 / 2 };
 const textFieldStyle = { width: 1 };
 
@@ -14,14 +16,19 @@ function SearchForm() {
 
   const [searchInput, setSearchInput] = useState<string>('');
 
-  const onTextChange = (e: any) => {
-    setSearchInput(e.target.value);
+  // This should be memoised
+  const debouncedSearch = debounce(async (value) => {
     const queryParams: QueryParams = {
-      searchTerm: e.target.value,
+      searchTerm: value,
       offset: 0,
       limit: ITEMS_PER_FETCH,
     };
     dispatch(fetchPosts(queryParams));
+  }, 300);
+
+  const onTextChange = (e: any) => {
+    setSearchInput(e.target.value);
+    debouncedSearch(e.target.value);
   };
 
   return (

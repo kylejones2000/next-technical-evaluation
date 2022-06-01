@@ -50,15 +50,18 @@ const mediaReducer = (state: State = initialState, action) => {
         ...state,
         loading: true,
       };
-    case UPDATE_MEDIA_COMPLETE:
+    case UPDATE_MEDIA_COMPLETE: {
+      let results = [];
+      results = action.payload.searchTerm !== state.searchTerm
+        ? action.payload.results
+        : state.results.concat(action.payload.results);
       return {
         ...state,
         loading: false,
-        results: action.payload.searchTerm !== state.searchTerm
-          ? action.payload.results
-          : state.results.concat(action.payload.results),
+        results,
         searchTerm: action.payload.searchTerm,
       };
+    }
     default:
       return state;
   }
