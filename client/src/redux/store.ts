@@ -32,6 +32,7 @@ export const fetchPosts: any = createAsyncThunk(
       artistViewUrl: result.artistViewUrl,
       artworkUrl100: result.artworkUrl100,
       collectionName: result.collectionName,
+      trackId: result.trackId,
       trackName: result.trackName,
     }));
     return {
@@ -53,7 +54,10 @@ const mediaReducer = (state: State = initialState, action) => {
       return {
         ...state,
         loading: false,
-        ...action.payload,
+        results: action.payload.searchTerm !== state.searchTerm
+          ? action.payload.results
+          : state.results.concat(action.payload.results),
+        searchTerm: action.payload.searchTerm,
       };
     default:
       return state;

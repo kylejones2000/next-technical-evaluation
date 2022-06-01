@@ -8,6 +8,7 @@ export type Media = {
   artistViewUrl: string;
   artworkUrl100: string;
   collectionName: string;
+  trackId: string,
   trackName: string;
 };
 

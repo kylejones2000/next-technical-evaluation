@@ -29,7 +29,7 @@ function Album({ mediaCards }: Props) {
           {/* End hero unit */}
           <Grid container spacing={10}>
             {mediaCards.map((card: Media) => (
-              <Grid item key={card.toString()} sm={6} md={4} lg={3}>
+              <Grid item key={card.trackId} sm={6} md={4} lg={3}>
                 <MediaCard {...card} />
               </Grid>
             ))}
